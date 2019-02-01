@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>p5 JavaScript</title>
+    <script src="../Javascript/p5.js"></script>
+  </head>
+  <body>
+
+
+
+
+
+<script type="text/javascript">
+
+class drop
+{
+
+  constructor(x, y, h, speed){
+    this.x = x;
+    this.y = y;
+    this.h = h
+    this.speed = speed;
+  }
+
+  fall(){
+    if(this.y >height){
+      this.y = 0;
+    } else{
+      this.y += this.speed;
+    }
+  }
+
+  show(){
+    fill(0, 255, 0);
+    ellipse(this.x,  this.y, this.h, this.h);
+  }
+
+}
+
+var drops = [];
+
+function setup(){
+  createCanvas(600, 400);
+  x = random(0, width);
+  for(var i=0; i<50; i++){
+    drops[i] = new drop(x, 0, 8, 5);
+  }
+}
+
+function draw(){
+  background(0)
+
+  for(var i=0; i< drops.length; i++){
+    drops[i].fall();
+    drops[i].show();
+  }
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>
